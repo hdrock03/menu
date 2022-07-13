@@ -5,25 +5,26 @@ import {useEffect, useState} from 'react'
 function App() {
 
   // const {title, category, price, img, desc} = menu
-  const [currentMenu , setCurrentMenu] = useState([])
+  const [currentMenu , setCurrentMenu] = useState([]) // ek state banaye jo ki empty hai suru me
   
 
   useEffect(()=> {
-    setCurrentMenu(menu)
+    setCurrentMenu(menu)  // menu jo array of object hai usko currentMenu me set kar diye
   }, [])
 
-  const handleClick = (category) =>{
-    if(category=== 'all'){
+  const handleClick = (category) =>{ // handleClick me category pass kiye hai  
+    if(category=== 'all'){           // jab category all hoga to currentmenu me menu set kar denge
       setCurrentMenu(menu)
     } else{
-    setCurrentMenu(menu.filter((item) =>{
-        return item.category === category
+    setCurrentMenu(menu.filter((item) =>{ // yaha me CurrentMenu me filter laga rhe taki filtered on the basis of category
+        return item.category === category // menu.filter matlv hmesa main array ko filter krega aur jo bhi category choose 
+                                          // choose krnge niche category pass kiye hai
     })
   )
 }
     
   }
-// 
+
   // const breakfast = ()=> {
   //   menu.filter(()=> {
   //    return setCategory((item) => {
@@ -36,22 +37,24 @@ function App() {
 
   
     // const handleBreakfast =  () => {
-    //   setCurrentMenu(currentMenu.filter(item => item.category === 'breakfast'))
-    // }
+    //   setCurrentMenu(currentMenu.filter(item => item.category === 'breakfast')) // yeh wala code bhi sahi hai filter ke liye
+    // } // currentMenu ke jagah menu hoga qki currentMenu me filtered array aa skta hai aur jb all pe click krnege to
+    // all filter nhi hoga
 
     // setCategory(breakfast)
 
-    console.log(currentMenu)
+    // console.log(currentMenu)
   
   
   return (
     <div className="App">
       <h1>Our Menu</h1>
       <div className='up'>
-          <button onClick={() => handleClick("all")}>All</button>
+          <button onClick={() => handleClick("all")}>All</button> 
           <button onClick={() => handleClick("breakfast")}>breakfast</button>
           <button onClick={() => handleClick("lunch")}>lunch</button>
           <button onClick={() => handleClick("shakes")}>Shakes</button>
+          {/* yaha pe category me pass kiye jo mko chahiye filtered hoke */}
       </div>
       <div className='down'>
         
