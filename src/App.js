@@ -1,5 +1,5 @@
 import './App.css';
-import menu from './data.js'
+import data from './data.js'
 import {useEffect, useState} from 'react'
 
 function App() {
@@ -9,14 +9,14 @@ function App() {
   
 
   useEffect(()=> {
-    setCurrentMenu(menu)  // menu jo array of object hai usko currentMenu me set kar diye
+    setCurrentMenu(data)  // menu jo array of object hai usko currentMenu me set kar diye
   }, [])
 
   const handleClick = (category) =>{ // handleClick me category pass kiye hai  
     if(category=== 'all'){           // jab category all hoga to currentmenu me menu set kar denge
-      setCurrentMenu(menu)
+      setCurrentMenu(data)
     } else{
-    setCurrentMenu(menu.filter((item) =>{ // yaha me CurrentMenu me filter laga rhe taki filtered on the basis of category
+    setCurrentMenu(data.filter((item) =>{ // yaha me CurrentMenu me filter laga rhe taki filtered on the basis of category
         return item.category === category // menu.filter matlv hmesa main array ko filter krega aur jo bhi category choose 
                                           // choose krnge niche category pass kiye hai
     })
